@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS-hello world</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+ </head>
+ <body ng-app="">
+  <header>
+   <h1>Angular JS</h1>
+   <h2>Two way data binding</h2>
+  </header>
+  <hr>
+  <div>
+   Please, enter some text:
+   <br>
+   <input type="text" placeholder="message to echo" ng-model="message">
+   <hr>
+   <b>Echoed text:</b>
+   <br>{{message}}  
+  </div>
+  <hr>
+  <footer>
+   <p>
+    Page created: <i>17:08 27/03/2016</i>
+    <br>
+    Last updated: <i>17:08 27/03/2016</i>
+   </p>
+  </footer>
+ </body>
+</html>
