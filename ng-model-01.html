@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS: 2 way data binding using 'ng-model'</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+  <script>
+   var myApp=angular
+             .module("myModule",[])
+             .controller("myController", function($scope){
+                var employee={
+                   firstName: "Jack",
+                   lastName: "Smith",
+                   gender: "Male"
+                };
+                $scope.employee=employee;
+              });
+  </script>
+ </head>
+ <body ng-app="myModule">
+  <header>
+   <h1>Angular</h1>
+   <h2>2 way data binding using: 'ng-model'</h2>
+  </header>
+  <main ng-controller="myController">
+   <table border="1">
+    <caption>Show initial values</caption>
+    <tr>
+     <td><input type="text" ng-model="employee.firstName" /></td>
+     <td><input type="text" ng-model="employee.lastName" /></td>
+     <td><input type="text" ng-model="employee.gender" /></td>
+    </tr>
+   </table>
+   <br><br>
+   <table border="1">
+    <caption>Show updated values</caption>
+    <tr>
+     <td>{{employee.firstName}}</td>
+     <td>{{employee.lastName}}</td>
+     <td>{{employee.gender}}</td>
+    </tr>
+   </table>
+  </main>
+ </body>
+</html>
