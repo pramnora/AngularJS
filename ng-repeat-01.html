@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS: 'ng-repeat' directive</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+  <script>
+   var myApp=angular
+             .module("myModule",[])
+             .controller("myController", function($scope){
+                var employees=[
+                    {firstName: "Jack", lastName: "Smith", gender: "M",salary:10000},
+                    {firstName: "Jill", lastName: "Jones", gender: "F",salary:8000},
+                    {firstName: "Fred", lastName: "Thomas",gender: "M",salary:5000},
+                    {firstName: "Joe",  lastName: "Bloggs",gender: "M",salary:6000},
+                    {firstName: "Jerry",lastName: "Hall",  gender: "F",salary:12000}
+                ];
+                $scope.employees=employees;
+             });
+  </script>
+ </head>
+ <body ng-app="myModule">
+  <header>
+   <h1>Angular</h1>
+   <h2>'ng-repeat' directive</h2>
+  </header>
+  <main ng-controller="myController">
+   <table border="1">
+    <caption>Employees</caption>
+    <thead>
+     <tr> 
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Salary</th>
+     </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="employee in employees">
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.gender}}</td>
+      <td>{{employee.salary}}</td>
+     </tr>
+    </tbody>
+   </table>
+  </main>
+ </body>
+</html>
