@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS: 'ng-repeat' directive</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+  <script>
+   var myApp=angular
+             .module("myModule",[])
+             .controller("myController", function($scope){
+                var countries=[
+                    {
+                      name:"UK",
+                      cities:[
+                          {name: "London"},
+                          {name: "Cambridge"},
+                          {name: "Oxford"},
+                      ]
+                    },
+                    {
+                      name:"Japan",
+                      cities:[
+                          {name: "Tokyo"},
+                          {name: "Kyoto"},
+                          {name: "Yokohama"},
+                      ]
+                    },
+                    {
+                      name:"Spain",
+                      cities:[
+                          {name: "Madrid"},
+                          {name: "Malaga"},
+                          {name: "Barcelona"},
+                      ]
+                    } 
+               ];
+                $scope.countries=countries;
+             });
+  </script>
+ </head>
+ <body ng-app="myModule">
+  <header>
+   <h1>Angular</h1>
+   <h2>'ng-repeat' directive</h2>
+  </header>
+  <main ng-controller="myController">
+   <ul>
+    <li ng-repeat="country in countries">
+     {{country.name}}
+     <ul>
+      <li ng-repeat="city in country.cities">{{city.name}}</li>
+     </ul>
+    </li>
+   </ul>
+  </main>
+ </body>
+</html>
