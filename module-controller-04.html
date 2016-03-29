@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS/Arrays</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+  <script>
+   var myApp=angular
+             .module("myModule",[])
+             .controller("myController", function($scope){
+                var employee={
+                   firstName: "John",
+                   lastName: "Doe",
+                   gender: "Male"
+                };
+                $scope.employee=employee;
+              });
+  </script>
+ </head>
+ <body ng-app="myModule">
+  <header>
+   <h1>Angular</h1>
+   <h2>Modules/Controllers</h2>
+  </header>
+  <main ng-controller="myController">
+   <p>firstName: {{employee.firstName}}</p>
+   <p>lastName: {{employee.lastName}}</p>
+   <p>gender: {{employee.gender}}</p>
+  </main>
+ </body>
+</html>
