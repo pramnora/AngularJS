@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>AngularJS: 'ng-click' directive</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
+  <script>
+   var myApp=angular
+             .module("myModule",[])
+             .controller("myController", function($scope){
+
+                var technologies=[
+                 {name: "C#",likes:0,dislikes:0},
+                 {name: "ASP",likes:0,dislikes:0},
+                 {name: "SQL Server",likes:0,dislikes:0},
+                 {name: "AngularJS",likes:0,dislikes:0},
+                ];
+
+                $scope.technologies=technologies;                 
+                
+                $scope.incrementLikes = function(technology){
+                  technology.likes++;
+                }
+
+                $scope.incrementDislikes = function(technology){
+                  technology.dislikes++;
+                }
+
+             });
+  </script>
+  <style type="text/css">
+   table{border-collapse:collapse;font-family:Arial;}
+   td{border:1px solid black;padding:5px;}
+   th{border:1px solid black;padding:5px;text-align:left;}
+  </style>
+ </head>
+ <body ng-app="myModule">
+  <header>
+   <h1>Angular</h1>
+   <h2>'ng-click' directive</h2>
+  </header>
+  <main ng-controller="myController">
+   <table>
+    <thead>
+    <tr>
+     <th>Name</th>
+     <th>Likes</th>
+     <th>Dislikes</th>
+     <th>Like/Dislike</th>
+    </tr>
+    </thead>
+    <tbody>
+     <tr ng-repeat="technology in technologies">
+      <td>{{technology.name}}</td>
+      <td>{{technology.likes}}</td>
+      <td>{{technology.dislikes}}</td>
+      <td>
+       <input type="button" value="Like" ng-click="incrementLikes(technology)" />
+       <input type="button" value="Dislike" ng-click="incrementDislikes(technology)" />
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </main>
+ </body>
+</html>
